@@ -48,7 +48,7 @@ module.exports = override(
     loaders[5].use.push({
       loader: "sass-resources-loader",
       options: {
-        resources: path.resolve(__dirname, "./src/common.scss"), //全局引入公共的scss 文件
+        resources: path.resolve(__dirname, "./src/style/common.less"), //全局引入公共的scss 文件
       },
     });
 
