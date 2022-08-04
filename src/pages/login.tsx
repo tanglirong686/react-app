@@ -5,7 +5,7 @@ import {
   Button,
 } from 'antd-mobile';
 import {useNavigate} from 'react-router-dom';
-import cookieUtil from '../common/localCache';
+import cacheUtil from '../common/localCache';
 
 const Login = () => {
   
@@ -18,7 +18,7 @@ const Login = () => {
         const formValues = loginForm.getFieldsValue();
         console.log(formValues)
         // // 设置登录成功
-        cookieUtil.add('logging',true);
+        cacheUtil.add('logging',true);
         // // 临时写死的用户token
         // const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGx9.PG4QF2a2H0jv-tYkq5AZ4cvQu4QCaPXLlVt_45VIlsI';
         // cookieUtil.add('token' ,token);

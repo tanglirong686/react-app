@@ -10,11 +10,11 @@ import App from './App.tsx';
 import Login from './pages/login.tsx';
 
 import './style/common.less';
-import cookieUtil from './common/localCache';
+import cacheUtil from './common/localCache';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const logging = cookieUtil.get('logging');
+const logging = cacheUtil.get('logging');
 console.log(logging)
 
 root.render(

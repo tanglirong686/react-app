@@ -1,44 +1,49 @@
-import cookie from 'react-cookies';
 
 class build {
 
     /**
-     * add 将数据加入到浏览器cookie缓存中
+     * add 将数据加入到浏览器localStorage缓存中
      * @param key 存值的标识key
      * @param data 存储数据
-     * @param option 额外配置项
      */
-    add(key, data = {}, option = {}) {
-        if(option){
-            cookie.save('userInfo', data, option)
+    add(key, data = {}) {
+        if(data){
+            localStorage.setItem(key, data)
+        }else{
+            localStorage.setItem(key, '')
         }
-        // path:'/' 表示全局可以访问
-        cookie.save(key, data, { path: '/'})
     }
 
     /**
-     * get 通过key从浏览器cookie缓存中取相应的数据
+     * get 通过key从浏览器localStorage缓存中取相应的数据
      * @param key 存值的标识key
-     * @param option 额外配置项
      */
-    get(key, option = {}) {
-        let data = cookie.load(key);
-        return data;
+    get(key) {
+        if(localStorage.hasOwnProperty(key)){
+            let data = localStorage.getItem(key);
+            return data;
+        }
+        return '';
     }
 
     /**
-     * remove 通过key从浏览器cookie缓存中删除相应的数据
+     * remove 通过key从浏览器localStorage缓存中删除相应的数据
      * @param key 存值的标识key
-     * @param option 额外配置项
      */
-    remove(key, option = {}) {
-        if(option){
-            cookie.load(key ,option);
+    remove(key) {
+        if(key){
+            localStorage.removeItem(key);
         }
-        cookie.load(key ,{ path: '/'});
+    }
+    /**
+     * remove 通过key从浏览器localStorage缓存中清除所有的缓存数据
+     * @param key 存值的标识key
+     */
+    clear(){
+        localStorage.clear()
     }
 }
 
-const cookieUtil = new build(); //new生成实例
-export const { add, get, remove } = cookieUtil;
-export default cookieUtil; // 导出
+const cacheUtil = new build(); //new生成实例
+export const { add, get, remove,clear } = cacheUtil;
+export default cacheUtil; // 导出
