@@ -2,6 +2,7 @@
   "name": "react-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -54,6 +55,7 @@
     "babel-plugin-import": "^1.13.5",
     "customize-cra": "^1.0.0",
     "postcss-px2rem-exclude": "0.0.6",
+    "prettier": "^2.7.1",
     "react-app-rewire-postcss": "^3.0.2",
     "react-app-rewired": "^2.0.2",
     "sass-resources-loader": "^2.2.5",

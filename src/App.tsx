@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { NavBar, TabBar } from 'antd-mobile';
 import {Route,Routes,useNavigate} from 'react-router-dom';
 import {
@@ -8,6 +8,11 @@ import {
   UserOutline,
 } from 'antd-mobile-icons';
 
+import Home from './pages/home';
+import Poetry from './pages/poetry';
+import Person from './pages/person';
+import PersonalCenter from './pages/personal_center';
+
 
 const tabs = [
   {
@@ -16,12 +21,12 @@ const tabs = [
     icon: <AppOutline />,
   },
   {
-    key: '/todo',
+    key: '/poetry',
     title: '我的待办',
     icon: <UnorderedListOutline />,
   },
   {
-    key: '/message',
+    key: '/person',
     title: '我的消息',
     icon: <MessageOutline />,
   },
@@ -55,8 +60,8 @@ const App = () => {
         <div className="content">
           <Routes>
             <Route path='/home' element={<Home />}></Route>
-            <Route path='/todo' element={<Todo />}></Route>
-            <Route path='/message' element={<Message />}></Route>
+            <Route path='/poetry' element={<Poetry />}></Route>
+            <Route path='/person' element={<Person />}></Route>
             <Route path='/me' element={<PersonalCenter />}></Route>
           </Routes>
         </div>
@@ -67,22 +72,6 @@ const App = () => {
         </div>
       </div>
   )
-}
-
-function Home() {
-  return <div>首页</div>
-}
-
-function Todo() {
-  return <div>我的待办</div>
-}
-
-function Message() {
-  return <div>我的消息</div>
-}
-
-function PersonalCenter() {
-  return <div>个人中心</div>
 }
 
 export default App;
